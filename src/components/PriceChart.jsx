@@ -1,9 +1,9 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
-import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement } from 'chart.js';
-import { Spinner } from '@chakra-ui/react';
+import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement, Filler } from 'chart.js';
+import { Spinner, Box } from '@chakra-ui/react';
 
-ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement);
+ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Filler);
 
 const PriceChart = ({ history }) => {
   if (!history) {
@@ -19,16 +19,45 @@ const PriceChart = ({ history }) => {
     labels: dates,
     datasets: [
       {
-        label: 'Precio USD',
+        label: 'Price (USD)',
         data: prices,
         borderColor: 'rgba(75, 192, 192, 1)',
         backgroundColor: 'rgba(75, 192, 192, 0.2)',
         fill: true,
+        tension: 0.4,
       },
     ],
   };
 
-  return <Line data={data} />;
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        display: true,
+        position: 'top',
+      },
+    },
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: 'Date',
+        },
+      },
+      y: {
+        title: {
+          display: true,
+          text: 'Price (USD)',
+        },
+      },
+    },
+  };
+
+  return (
+    <Box borderWidth="1px" borderRadius="lg" p={4} mt={4}>
+      <Line data={data} options={options} />
+    </Box>
+  );
 };
 
 export default PriceChart;
