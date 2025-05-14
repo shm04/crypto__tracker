@@ -1,12 +1,102 @@
-# React + Vite
+# Crypto Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Introduction
 
-Currently, two official plugins are available:
+Crypto Tracker is a web application that allows users to view real-time cryptocurrency prices and interactive historical price charts. It uses the public CoinGecko API to fetch updated data and features a modern UI built with Chakra UI.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌐 Live Demo
 
-## Expanding the ESLint configuration
+* **Frontend:** [Crypto Tracker on Netlify](https://crypto-tracker-demo.netlify.app)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Technologies Used
+
+* **Frontend:** React, Vite, React Query, Chart.js, Chakra UI
+* **Data API:** CoinGecko (public API)
+* **Deployment:** Netlify
+
+## 📝 Key Features
+
+
+* Real-time visualization of cryptocurrency prices
+* Interactive historical price chart
+* Filter by cryptocurrency and fiat currency (USD, EUR, MXN, etc.)
+* Modern and responsive UI with Chakra UI
+* Automatic price update every 10 seconds
+
+## 🗂️ Project Structure
+
+```
+├── src
+│ ├── components
+│ │ ├── CryptoCard.jsx
+│ │ ├── PriceChart.jsx
+│ │ └── CurrencySelector.jsx
+│ ├── hooks
+│ │ ├── useCryptoData.js
+│ │ └── useCryptoHistory.js
+│ ├── pages
+│ │ └── CryptoDashboard.jsx
+│ ├── App.jsx
+│ └── main.jsx
+└── README.md
+```
+
+## ⚙️ Installation and Configuration
+
+### Clone the Repository
+
+```
+git clone https://github.com/shm04/crypto__tracker.git
+cd crypto__tracker
+```
+
+```
+npm install
+```
+
+* Start the client:
+
+```
+npm run dev
+```
+
+## 🌐 Deployment
+
+### Frontend (Netlify)
+
+1. Create an account on Netlify.
+2. Connect the GitHub repository..
+3. Deploy the application.
+
+## 🌟 API Endpoints
+
+* **GET /coins/markets** Retrieves the list of cryptocurrencies with current prices.
+* **GET /coins/:id/market_chart** Retrieves historical price data for a specific cryptocurrency.
+
+## 💻 Useful Commands
+
+* Start the development server:
+
+```
+npm run dev
+```
+
+* Build for production:
+
+```
+npm run build
+```
+
+* Preview the production build:
+
+```
+npm run preview
+```
+
+## 🤝 Contributions
+
+Contributions are welcome! Feel free to submit a pull request or open an issue.
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
