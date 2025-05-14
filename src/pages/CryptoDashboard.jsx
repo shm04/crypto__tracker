@@ -28,14 +28,6 @@ const CryptoDashboard = () => {
         ))}
       </Select>
 
-      <CurrencySelector currency={currency} setCurrency={setCurrency} />
-
-      <SimpleGrid columns={[1, 2, 3]} spacing={4} mt={5}>
-        {cryptos?.map((crypto) => (
-          <CryptoCard key={crypto.id} crypto={crypto} currency={currency} />
-        ))}
-      </SimpleGrid>
-
       {selectedCrypto && history && (
         <>
           <Heading size="md" mt={5}>
@@ -44,6 +36,14 @@ const CryptoDashboard = () => {
           <PriceChart history={history} />
         </>
       )}
+
+      <CurrencySelector currency={currency} setCurrency={setCurrency} />
+
+      <SimpleGrid columns={[1, 2, 3]} spacing={4} mt={5}>
+        {cryptos?.map((crypto) => (
+          <CryptoCard key={crypto.id} crypto={crypto} currency={currency} />
+        ))}
+      </SimpleGrid>
     </Box>
   );
 };
