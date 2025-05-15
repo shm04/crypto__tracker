@@ -31,7 +31,7 @@ const CryptoDashboard = () => {
       {selectedCrypto && history && (
         <>
           <Heading size="md" mt={5}>
-            Histórico de {selectedCrypto.toUpperCase()} ({currency.toUpperCase()})
+            History of {selectedCrypto.toUpperCase()} ({currency.toUpperCase()})
           </Heading>
           <PriceChart history={history} />
         </>
