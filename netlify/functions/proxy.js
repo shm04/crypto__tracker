@@ -14,7 +14,7 @@ export async function handler(event) {
       body: JSON.stringify(response.data),
     };
   } catch (error) {
-    console.error(error);
+    console.error('Error fetching data from CoinGecko:', error);
     return {
       statusCode: 500,
       body: JSON.stringify({ error: 'Error fetching data from CoinGecko' }),
