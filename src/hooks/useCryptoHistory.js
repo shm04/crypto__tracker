@@ -1,9 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 
 const fetchCryptoHistory = async (cryptoId, currency) => {
-  const response = await fetch(
-    `/api/proxy?endpoint=coins/${cryptoId}/market_chart?vs_currency=${currency}&days=7&interval=daily`
-  );
+  // Construir el endpoint sin encodeURIComponent
+  const endpoint = `coins/${cryptoId}/market_chart?vs_currency=${currency}&days=7&interval=daily`;
+  
+  // Hacer la solicitud al proxy
+  const response = await fetch(`/api/proxy?endpoint=${endpoint}`);
+
   if (!response.ok) {
     throw new Error('Error fetching historical prices');
   }
