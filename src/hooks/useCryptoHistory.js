@@ -1,10 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
 
 const fetchCryptoHistory = async (cryptoId, currency) => {
-  const apiUrl = `https://api.coingecko.com/api/v3/coins/${cryptoId}/market_chart?vs_currency=${currency}&days=7&interval=daily`;
-  const proxyUrl = `https://thingproxy.freeboard.io/fetch/${apiUrl}`;
-
-  const response = await fetch(proxyUrl);
+  const response = await fetch(
+    `/api/proxy?endpoint=coins/${cryptoId}/market_chart?vs_currency=${currency}&days=7&interval=daily`
+  );
   if (!response.ok) {
     throw new Error('Error fetching historical prices');
   }

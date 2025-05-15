@@ -1,10 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
 
 const fetchCryptoData = async (currency) => {
-  const apiUrl = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc`;
-  const proxyUrl = `https://thingproxy.freeboard.io/fetch/${apiUrl}`;
-
-  const response = await fetch(proxyUrl);
+  const response = await fetch(
+    `/api/proxy?endpoint=coins/markets?vs_currency=${currency}&order=market_cap_desc`
+  );
   if (!response.ok) {
     throw new Error('Error fetching cryptocurrency data');
   }
