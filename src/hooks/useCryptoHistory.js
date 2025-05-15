@@ -1,11 +1,17 @@
 import { useQuery } from '@tanstack/react-query';
 
+const API_KEY = import.meta.env.VITE_COINGECKO_API_KEY;
+
 const fetchCryptoHistory = async (cryptoId, currency) => {
-  // Construir el endpoint sin encodeURIComponent
-  const endpoint = `coins/${cryptoId}/market_chart?vs_currency=${currency}&days=7&interval=daily`;
-  
-  // Hacer la solicitud al proxy
-  const response = await fetch(`/api/proxy?endpoint=${endpoint}`);
+  const response = await fetch(
+    `https://api.coingecko.com/api/v3/coins/${cryptoId}/market_chart?vs_currency=${currency}&days=7&interval=daily`,
+    {
+      method: 'GET',
+      headers: {
+        'x-cg-demo-api-key': API_KEY,
+      },
+    }
+  );
 
   if (!response.ok) {
     throw new Error('Error fetching historical prices');

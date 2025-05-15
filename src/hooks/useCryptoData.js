@@ -1,9 +1,18 @@
 import { useQuery } from '@tanstack/react-query';
 
+const API_KEY = import.meta.env.VITE_COINGECKO_API_KEY;
+
 const fetchCryptoData = async (currency) => {
   const response = await fetch(
-    `/api/proxy?endpoint=coins/markets?vs_currency=${currency}&order=market_cap_desc`
+    `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc`,
+    {
+      method: 'GET',
+      headers: {
+        'x-cg-demo-api-key': API_KEY,
+      },
+    }
   );
+
   if (!response.ok) {
     throw new Error('Error fetching cryptocurrency data');
   }

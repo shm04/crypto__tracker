@@ -8,7 +8,7 @@ const CryptoCard = ({ crypto, currency }) => {
         {crypto.name} ({crypto.symbol.toUpperCase()})
       </Text>
       <Text>
-        Precio: {crypto.current_price.toLocaleString()} {currency.toUpperCase()}
+        Price: {crypto.current_price.toLocaleString()} {currency.toUpperCase()}
       </Text>
       <Badge colorScheme={crypto.price_change_percentage_24h > 0 ? 'green' : 'red'}>
         {crypto.price_change_percentage_24h.toFixed(2)}%
